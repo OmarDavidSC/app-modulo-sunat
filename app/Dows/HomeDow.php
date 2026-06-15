@@ -13,11 +13,11 @@ class HomeDow
         $response = FG::responseDefault();
         try {
 
-            $users = [];
+            $general = [];
 
             $response['success'] = true;
-            $response['data']    = compact('users');
-            $response['message'] = 'Se guardo correctamente';
+            $response['data']    = null;
+            $response['message'] = 'successfully';
         } catch (\Exception $e) {
             $response['message'] = $e->getMessage();
         }

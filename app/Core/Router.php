@@ -85,11 +85,7 @@ class Router
 
         if (isset($this->routes[$method])) {
             foreach ($this->routes[$method] as $routePath => $route) {
-                $pattern = preg_replace(
-                    '/\{([a-zA-Z0-9_]+)\}/',
-                    '(?P<$1>[^\/]+)',
-                    $routePath
-                );
+                $pattern = preg_replace('/\{([a-zA-Z0-9_]+)\}/', '(?P<$1>[^\/]+)', $routePath);
                 $pattern = '#^' . $pattern . '$#';
                 if (preg_match($pattern, $uri, $matches)) {
                     $routeFound = $route;
@@ -111,7 +107,6 @@ class Router
                 'message' => 'Esta pagina no esta disponible en este momento.',
                 'uri' => $uri
             ]);
-
             exit;
         }
 
@@ -140,7 +135,7 @@ class Router
 
         if (is_array($response)) {
             header('Content-Type: application/json');
-            echo json_encode( $response,JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+            echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         } else {
             echo $response;
         }

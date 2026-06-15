@@ -13,8 +13,6 @@ class SunatDow
         try {
             $input = $request['body'] ?? [];
 
-            // var_dump($input);exit;
-
             $ruc = $input['empresa']['ruc'];
             $tipo_documento = $input['comprobante']['tipo_documento'];
             $items = $input['items'];

@@ -6,6 +6,6 @@ class HomeController extends BaseController
 {
     public function index($request)
     {
-        return 'Bienvenido al api de Omar David Coronado';
+        return 'Bienvenido al api de Omar Coronado';
     }
 }

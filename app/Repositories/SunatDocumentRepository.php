@@ -50,10 +50,7 @@ class SunatDocumentRepository
             CURLOPT_URL => $this->url . $endpoint,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => $method,
-            CURLOPT_POSTFIELDS => json_encode(
-                $payload,
-                JSON_UNESCAPED_UNICODE
-            ),
+            CURLOPT_POSTFIELDS => json_encode($payload, JSON_UNESCAPED_UNICODE),
             CURLOPT_HTTPHEADER => [
                 'Content-Type: application/json'
             ],
@@ -61,10 +58,7 @@ class SunatDocumentRepository
 
         $response = curl_exec($curl);
         $error = curl_error($curl);
-        $httpCode = curl_getinfo(
-            $curl,
-            CURLINFO_HTTP_CODE
-        );
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         curl_close($curl);
 
